@@ -136,7 +136,7 @@ int main(int argc, char **argv)
     std::thread readTask(readTaskHandler, clientfd); // pthread_create
     readTask.detach();                               // pthread_detach
 
-    cout<<"请求公钥"<<endl;
+    //cout<<"请求公钥"<<endl;
     //获取公钥
     json js;
     js["msgid"] = RSA_public;       
@@ -257,7 +257,7 @@ int main(int argc, char **argv)
 }
 
 void setPublicKey(json &responsejs){
-    cout<<"收到公钥啦"<<responsejs["key"]<<endl;
+    //cout<<"收到公钥啦"<<responsejs["key"]<<endl;
     publicKeyStr  = responsejs["key"];
     fd = responsejs["fd"];
     
@@ -722,7 +722,7 @@ string aesencryptedjson(const string& plaintext){
 
 // 对称解密
 string aesdecryptedjson(const string& ciphertext_hex){
-    cout<<"收到服务器数据解密前的数据"<<ciphertext_hex<<endl;
+    //cout<<"收到服务器数据解密前的数据"<<ciphertext_hex<<endl;
     int ciphertext_len = ciphertext_hex.size() / 2;
     unsigned char* ciphertext = new unsigned char[ciphertext_len];
     for(int i = 0; i < ciphertext_len; i++)
